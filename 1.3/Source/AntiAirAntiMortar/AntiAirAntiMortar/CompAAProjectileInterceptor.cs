@@ -70,7 +70,6 @@ namespace AntiAirAntiMortar
             }
         }
 
-
         public override void CompTick()
         {
             base.CompTick();
@@ -138,7 +137,7 @@ namespace AntiAirAntiMortar
                     {
                         __result = false;
                     }
-                    else if (projectile is Projectile_Explosive)
+                    else if (projectile.def.projectile.flyOverhead || projectile is Projectile_Explosive)
                     {
                         __result = true;
                     }
@@ -159,7 +158,6 @@ namespace AntiAirAntiMortar
                         return false;
                     }
                 }
-
                 return true;
             }
             private static void Postfix(bool __result, CompProjectileInterceptor __instance, Projectile projectile, Vector3 lastExactPos, Vector3 newExactPos)
@@ -182,12 +180,20 @@ namespace AntiAirAntiMortar
                 }
             }
         }
-
-
+        
         public override void PostExposeData()
         {
             base.PostExposeData();
             Scribe_Values.Look(ref interceptMode, "interceptMode");
+        }
+    }
+
+    [StaticConstructorOnStartup]
+    public static class Startup
+    {
+        static Startup()
+        {
+            new Harmony("AntiAirAntiMortar.Mod").PatchAll();
         }
     }
 }
