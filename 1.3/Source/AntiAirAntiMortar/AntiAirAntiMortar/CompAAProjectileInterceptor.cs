@@ -21,15 +21,9 @@ namespace AntiAirAntiMortar
         }
     }
 
-    public enum InterceptMode
-    {
-        DropPods,
-        Air
-    }
     [StaticConstructorOnStartup]
     public class CompAAProjectileInterceptor : CompProjectileInterceptor
     {
-        public InterceptMode interceptMode;
         public new CompProperties_AAProjectileInterceptor Props => base.props as CompProperties_AAProjectileInterceptor;
 
         public CompPowerTrader compPower;
@@ -41,39 +35,10 @@ namespace AntiAirAntiMortar
             compPower = this.parent.TryGetComp<CompPowerTrader>();
             compRefuelable = this.parent.TryGetComp<CompRefuelable>();
         }
-
-        public override IEnumerable<Gizmo> CompGetGizmosExtra()
-        {
-            foreach (var g in base.CompGetGizmosExtra())
-            {
-                yield return g;
-            }
-            if (this.parent.Faction == Faction.OfPlayer)
-            {
-                var mode = interceptMode == InterceptMode.DropPods ? "DropPods".Translate() : "Missiles".Translate();
-                yield return new Command_Action
-                {
-                    defaultLabel = "InterceptMode".Translate(mode),
-                    icon = ContentFinder<Texture2D>.Get("UI/SwitchMode"),
-                    action = delegate
-                    {
-                        if (interceptMode == InterceptMode.Air)
-                        {
-                            interceptMode = InterceptMode.DropPods;
-                        }
-                        else
-                        {
-                            interceptMode = InterceptMode.Air;
-                        }
-                    }
-                };
-            }
-        }
-
         public override void CompTick()
         {
             base.CompTick();
-            if (this.interceptMode == InterceptMode.DropPods && this.Active)
+            if (this.Active)
             {
                 foreach (var target in this.parent.Map.listerThings.ThingsInGroup(ThingRequestGroup.ActiveDropPod)
                     .Where(t => t is DropPodIncoming pod && (pod.Contents.innerContainer.OfType<Pawn>().FirstOrDefault()?.HostileTo(parent.Faction) ?? false)
@@ -112,15 +77,9 @@ namespace AntiAirAntiMortar
             StringBuilder stringBuilder = new StringBuilder();
             if (this.compRefuelable.HasFuel && this.compPower.PowerOn)
             {
-                if (this.interceptMode == InterceptMode.Air)
-                {
-                    stringBuilder.AppendLine("InterceptsProjectiles".Translate("InterceptsProjectiles_AerialProjectiles".Translate()));
-                    stringBuilder.AppendLine("InterceptsProjectiles".Translate("InterceptsProjectiles_GroundProjectiles".Translate()));
-                }
-                else
-                {
-                    stringBuilder.AppendLine("InterceptsDropPods".Translate());
-                }
+                stringBuilder.AppendLine("InterceptsProjectiles".Translate("InterceptsProjectiles_AerialProjectiles".Translate()));
+                stringBuilder.AppendLine("InterceptsProjectiles".Translate("InterceptsProjectiles_GroundProjectiles".Translate()));
+                stringBuilder.AppendLine("InterceptsDropPods".Translate());
             }
             return stringBuilder.ToString().TrimEndNewlines();
         }
@@ -131,16 +90,10 @@ namespace AntiAirAntiMortar
             private static void Postfix(ref bool __result, CompProjectileInterceptor __instance, 
                 CompProperties_ProjectileInterceptor props, Projectile projectile)
             {
-                if (__instance is CompAAProjectileInterceptor comp)
+                if (__instance is CompAAProjectileInterceptor comp 
+                    && (projectile.def.projectile.flyOverhead || projectile is Projectile_Explosive))
                 {
-                    if (comp.interceptMode == InterceptMode.DropPods)
-                    {
-                        __result = false;
-                    }
-                    else if (projectile.def.projectile.flyOverhead || projectile is Projectile_Explosive)
-                    {
-                        __result = true;
-                    }
+                    __result = true;
                 }
             }
         }
@@ -179,12 +132,6 @@ namespace AntiAirAntiMortar
                     __result = def.HasComp(typeof(CompAAProjectileInterceptor));
                 }
             }
-        }
-        
-        public override void PostExposeData()
-        {
-            base.PostExposeData();
-            Scribe_Values.Look(ref interceptMode, "interceptMode");
         }
     }
 
