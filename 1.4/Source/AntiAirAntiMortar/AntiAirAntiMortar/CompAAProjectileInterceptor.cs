@@ -104,14 +104,11 @@ namespace AntiAirAntiMortar
         {
             private static void Postfix(ref bool __result, CompProperties_ProjectileInterceptor props, Projectile projectile)
             {
-                if (!__result && CompProjectileInterceptor_CheckIntercept_Patch.interceptor is CompAAProjectileInterceptor comp)
+                if (CompProjectileInterceptor_CheckIntercept_Patch.interceptor is CompAAProjectileInterceptor comp)
                 {
                     if ((projectile.def.projectile.flyOverhead || projectile is Projectile_Explosive))
                     {
-                        if (Rand.ChanceSeeded(0.75f, projectile.thingIDNumber))
-                        {
-                            __result = true;
-                        }
+                        __result = Rand.ChanceSeeded(0.75f, projectile.thingIDNumber);
                     }
                 }
             }
