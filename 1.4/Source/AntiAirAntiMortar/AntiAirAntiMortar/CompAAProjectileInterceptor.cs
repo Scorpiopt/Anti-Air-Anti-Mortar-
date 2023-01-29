@@ -44,7 +44,7 @@ namespace AntiAirAntiMortar
                     .Where(t => t is DropPodIncoming pod && (pod.Contents.innerContainer.OfType<Pawn>().FirstOrDefault()?.HostileTo(parent.Faction) ?? false)
                     && Mathf.Abs((t.DrawPos - this.parent.DrawPos).magnitude) <= Props.radius).ToList())
                 {
-                    if (target != null)
+                    if (target != null && Rand.ChanceSeeded(0.90f, target.thingIDNumber))
                     {
                         GenPlace.TryPlaceThing(ThingMaker.MakeThing(ThingDefOf.ChunkSlagSteel), target.DrawPos.ToIntVec3(), this.parent.Map, 
                             ThingPlaceMode.Near);
