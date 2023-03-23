@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "J/3uGxY/8rJ8lHWa13q5oz6wc1/hg9x9Bfj4YB29mTiLTrbkNKcuMPcXgr2UpTMsjGioR10vuMofAsE6xMFN7g==",
+  "dgSpecHash": "JUWB8cPI/sUGkEtPhCqpjcuUVOGXtXdD9QX6FuhuU+P6Neh6ndoDy9p0IJtSxL8Za1LZzM/V/LL+Vs1IBy+GUA==",
   "success": true,
   "projectFilePath": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Anti-Air-Anti-Mortar-\\1.4\\Source\\AntiAirAntiMortar\\AntiAirAntiMortar\\AntiAirAntiMortar.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Vova\\.nuget\\packages\\krafs.rimworld.ref\\1.4.3613\\krafs.rimworld.ref.1.4.3613.nupkg.sha512",
+    "C:\\Users\\Vova\\.nuget\\packages\\krafs.rimworld.ref\\1.4.3641\\krafs.rimworld.ref.1.4.3641.nupkg.sha512",
     "C:\\Users\\Vova\\.nuget\\packages\\lib.harmony\\2.2.2\\lib.harmony.2.2.2.nupkg.sha512"
   ],
   "logs": []

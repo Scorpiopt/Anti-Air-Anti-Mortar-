@@ -6,7 +6,6 @@
         <label>anti-mortar</label>
         <description>.</description> <!-- Adjust -->
         <uiIconPath>Things/Building/Security/AntiMortar_MenuIcon</uiIconPath>
-        <thingClass>Building_TurretGun</thingClass>
         <statBases>
             <MaxHitPoints>380</MaxHitPoints>
             <Flammability>0.7</Flammability>
@@ -44,7 +43,6 @@
         <repairEffect>ConstructMetal</repairEffect>
         <forceDebugSpawnable>true</forceDebugSpawnable>
         <building>
-            <turretGunDef>S_Gun_AutiMortar</turretGunDef>
             <destroySound>BuildingDestroyed_Metal_Small</destroySound>
         </building>
         <placeWorkers>
@@ -97,53 +95,6 @@
             <li>HeavyTurrets</li>
         </researchPrerequisites>
         <uiIconScale>0.95</uiIconScale>
-    </ThingDef>
-
-    <ThingDef ParentName="BaseWeaponTurret">
-        <defName>S_Gun_AutiMortar</defName>
-        <label>anti mortar</label>
-        <description>A self-loading large-bore cannon designed to attach to a turret.</description>
-        <graphicData>
-            <texPath>Things/Building/Security/AntiMortar_Top</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
-            <drawSize>(8,8)</drawSize>
-        </graphicData>  
-        <statBases>
-            <AccuracyTouch>0.05</AccuracyTouch>
-            <AccuracyShort>0.05</AccuracyShort>
-            <AccuracyMedium>0.05</AccuracyMedium>
-            <AccuracyLong>0.05</AccuracyLong>
-            <RangedWeapon_Cooldown>5.0</RangedWeapon_Cooldown>
-            <DeteriorationRate>0</DeteriorationRate>
-            <Mass>40</Mass>
-            <Flammability>0</Flammability>
-        </statBases>
-        <verbs>
-            <li>
-                <verbClass>Verb_Shoot</verbClass>
-                <defaultProjectile>S_Bullet_AntiMortar</defaultProjectile>
-                <warmupTime>0</warmupTime>
-                <range>32.9</range>
-                <ticksBetweenBurstShots>20</ticksBetweenBurstShots>
-                <burstShotCount>3</burstShotCount>
-                <soundCastTail>GunTail_Heavy</soundCastTail>
-                <muzzleFlashScale>12</muzzleFlashScale>
-            </li>
-        </verbs>
-    </ThingDef>
-
-    <ThingDef ParentName="BaseBullet">
-        <defName>S_Bullet_AntiMortar</defName>
-        <label>anti mortar shell</label>
-        <graphicData>
-        <texPath>Things/Projectile/Bullet_Big</texPath>
-        <graphicClass>Graphic_Single</graphicClass>
-        </graphicData>
-        <projectile>
-            <damageDef>S_Dummy</damageDef>
-            <damageAmountBase>0</damageAmountBase>
-            <speed>88</speed>
-        </projectile>
     </ThingDef>
 
 </Defs>
