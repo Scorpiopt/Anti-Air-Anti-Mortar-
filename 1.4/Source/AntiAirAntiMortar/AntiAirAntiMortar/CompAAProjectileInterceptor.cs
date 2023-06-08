@@ -40,14 +40,26 @@ namespace AntiAirAntiMortar
             base.CompTick();
             if (this.Active)
             {
-                foreach (var target in this.parent.Map.listerThings.ThingsInGroup(ThingRequestGroup.ActiveDropPod)
-                    .Where(t => t is DropPodIncoming pod && (pod.Contents.innerContainer.OfType<Pawn>().FirstOrDefault()?.HostileTo(parent.Faction) ?? false)
-                    && Mathf.Abs((t.DrawPos - this.parent.DrawPos).magnitude) <= Props.radius).ToList())
+                foreach (var target in this.parent.Map.listerThings.ThingsInGroup(ThingRequestGroup.ActiveDropPod).OfType<DropPodIncoming>()
+                    .Where(pod => (pod.Contents.innerContainer.OfType<Pawn>().FirstOrDefault()?.HostileTo(parent.Faction) ?? false)
+                    && Mathf.Abs((pod.DrawPos - this.parent.DrawPos).magnitude) <= Props.radius).ToList())
                 {
                     if (target != null && Rand.ChanceSeeded(0.90f, target.thingIDNumber))
                     {
                         GenPlace.TryPlaceThing(ThingMaker.MakeThing(ThingDefOf.ChunkSlagSteel), target.DrawPos.ToIntVec3(), this.parent.Map, 
                             ThingPlaceMode.Near);
+                        var allThings = target.Contents.innerContainer.ToList();
+                        foreach (var thing in allThings)
+                        {
+                            if (thing is Pawn pawn)
+                            {
+                                pawn.Kill(null);
+                            }
+                            else
+                            {
+                                thing.Destroy();
+                            }
+                        }
                         target.Destroy();
                         this.compRefuelable.ConsumeFuel(1f);
                     }
