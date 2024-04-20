@@ -1,0 +1,55 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Anti-Air-Anti-Mortar-\\1.5\\Source\\AntiAirAntiMortar\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|AntiAirAntiMortar||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{14D4059D-C6B2-4751-B30F-9D257102A542}|AntiAirAntiMortar\\AntiAirAntiMortar.csproj|c:\\program files (x86)\\steam\\steamapps\\common\\rimworld\\mods\\anti-air-anti-mortar-\\1.5\\source\\antiairantimortar\\antiairantimortar\\compaaprojectileinterceptor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{14D4059D-C6B2-4751-B30F-9D257102A542}|AntiAirAntiMortar\\AntiAirAntiMortar.csproj|solutionrelative:antiairantimortar\\compaaprojectileinterceptor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{14D4059D-C6B2-4751-B30F-9D257102A542}|AntiAirAntiMortar\\AntiAirAntiMortar.csproj|c:\\program files (x86)\\steam\\steamapps\\common\\rimworld\\mods\\anti-air-anti-mortar-\\1.5\\source\\antiairantimortar\\antiairantimortar\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|a54ad834-9219-4aa6-b589-607af21c3e26"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AntiAirAntiMortar",
+              "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Anti-Air-Anti-Mortar-\\1.5\\Source\\AntiAirAntiMortar\\AntiAirAntiMortar\\AntiAirAntiMortar.csproj",
+              "RelativeDocumentMoniker": "AntiAirAntiMortar\\AntiAirAntiMortar.csproj",
+              "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Anti-Air-Anti-Mortar-\\1.5\\Source\\AntiAirAntiMortar\\AntiAirAntiMortar\\AntiAirAntiMortar.csproj",
+              "RelativeToolTip": "AntiAirAntiMortar\\AntiAirAntiMortar.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2022-04-10T22:36:29.905Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CompAAProjectileInterceptor.cs",
+              "DocumentMoniker": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Anti-Air-Anti-Mortar-\\1.5\\Source\\AntiAirAntiMortar\\AntiAirAntiMortar\\CompAAProjectileInterceptor.cs",
+              "RelativeDocumentMoniker": "AntiAirAntiMortar\\CompAAProjectileInterceptor.cs",
+              "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\Anti-Air-Anti-Mortar-\\1.5\\Source\\AntiAirAntiMortar\\AntiAirAntiMortar\\CompAAProjectileInterceptor.cs",
+              "RelativeToolTip": "AntiAirAntiMortar\\CompAAProjectileInterceptor.cs",
+              "ViewState": "AQIAACAAAAAAAAAAAAAwwDsAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-20T08:05:17.762Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
